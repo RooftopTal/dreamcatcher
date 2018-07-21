@@ -1,0 +1,18 @@
+<h1>Answer Page</h1>
+<p>Current answers for imagination, animals</p>
+
+<div>
+    <h2>Answer Form</h2>
+    <form #answerForm="ngForm">
+        <div class="form-group">
+            <label for="name">Search for answer:</label>
+            <input type="text" class="form-control" id="name" required
+                   [(ngModel)]="model.searchAnswer"
+                   name="name">
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="findAnswer()">Search</button>
+    </form>
+</div>
+
+<p>{{currentAnswer}}</p>
