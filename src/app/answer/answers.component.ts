@@ -2,11 +2,11 @@ import {Component} from "@angular/core";
 import {FirebaseService} from "../firebase/firebase.service";
 
 @Component({
-    selector: "answer",
-    template: require("./answer.component.html")
+    selector: "answers",
+    template: require("./answers.component.html")
 })
 
-export class AnswerComponent {
+export class AnswersComponent {
     public model = {
         searchAnswer: ""
     };
@@ -16,7 +16,7 @@ export class AnswerComponent {
 
     public findAnswer() {
         if (this.model.searchAnswer) {
-            this.firebaseService.getAnswer(this.model.searchAnswer).then((ans: string) => {
+            this.firebaseService.getAnswer(this.model.searchAnswer.toLowerCase()).then((ans: string) => {
                 if (ans) {
                     this.currentAnswer = ans;
                 } else {

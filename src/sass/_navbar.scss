@@ -1,0 +1,83 @@
+@import "./_color-constants.scss";
+
+.navbar{
+  border-radius: 0;
+  margin-bottom: 0;
+  background: $bar-background; /* For browsers that do not support gradients */
+  box-shadow: $navbar-shadow;
+  border: none;
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    @media (max-width: $navbar-large-font-screen-width) {
+      font-size: 20px;
+    }
+    color: $navbar-brand;
+    letter-spacing: 2px;
+  }
+
+    .navbar-nav {
+      a {
+        &:hover {
+          background: $navbar-link-background-hover;
+          color: $navbar-link-hover;
+        }
+
+        &:focus {
+          background: none;
+        }
+        font-weight: 100;
+
+        font-size: 18px;
+        @media (max-width: $navbar-small-font-screen-width) {
+          font-size: 16px;
+        }
+        color: $navbar-link;
+        cursor: pointer;
+      }
+    }
+
+
+    .dropdown {
+      .dropdown-menu {
+        a {
+          &:hover {
+            background: $dropdown-link-background-hover;
+            color: $dropdown-link-hover;
+          }
+          color: $dropdown-link;
+          text-shadow: none;
+        }
+        border: 1px solid $bar-background;
+      }
+      &.open .dropdown-toggle {
+        color: $dropdown-link-hover;
+        background: $navbar-link-background-hover;
+      }
+    }
+
+    .navbar-toggle {
+      border-width: 2px;
+      border-color: $collapse-button-border-color;
+
+      .icon-bar {
+        background: $collapse-button-bar-color;
+        box-shadow: $collapse-button-bar-shadow;
+      }
+
+      box-shadow: $collapse-button-outer-shadow;
+
+      &:hover {
+        box-shadow: $collapse-button-outer-shadow-selected;
+      }
+    }
+
+
+  .navbar-collapse{
+    @media (min-width: 768px) and (max-width: 789px) {
+      a{
+        border-top: 1px solid rgba($navbar-brand, 0.2);
+      }
+    }
+  }
+}
