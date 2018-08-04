@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 import {FirebaseService} from "../firebase/firebase.service";
+import {TeamAnswers} from "../../models/team-answers.model";
+import {Answers} from "../../models/answers.model";
 
 @Component({
     selector: "answers",
@@ -8,19 +10,22 @@ import {FirebaseService} from "../firebase/firebase.service";
 
 export class AnswersComponent {
     public model = {
-        searchAnswer: ""
+        teamName: "",
+        searchAnswer: {
+            imagination: "",
+            animals: ""
+        }
     };
-    public currentAnswer: string = "";
+    public message: string;
 
     constructor(private firebaseService: FirebaseService) { };
 
-    public findAnswer() {
-        if (this.model.searchAnswer) {
-            this.firebaseService.getAnswer(this.model.searchAnswer.toLowerCase()).then((ans: string) => {
+    public getTeamAnswers() {
+        if (this.model.teamName) {
+            this.firebaseService.getAnswers(this.model.teamName).then((ans: Answers) => {
                 if (ans) {
-                    this.currentAnswer = ans;
-                } else {
-                    this.currentAnswer = "No answer with that name";
+                    this.model.searchAnswer = ans;
+                    this.model.searchAnswer.animals = ans.animals;
                 }
             });
         }

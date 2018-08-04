@@ -1,18 +1,29 @@
 <h1>Answer Page</h1>
-<p>Current answers for imagination, animals</p>
+<p>Current team names: cyan, magenta</p>
 
 <div>
-    <h2>Answer Form</h2>
     <form #answerForm="ngForm">
+        <h2>Select team name:</h2>
         <div class="form-group">
-            <label for="name">Search for answer:</label>
-            <input type="text" class="form-control" id="name" required
-                   [(ngModel)]="model.searchAnswer"
+            <input type="text" class="form-control" id="name"
+                   [(ngModel)]="model.teamName"
                    name="name">
         </div>
 
-        <button type="submit" class="btn btn-success" (click)="findAnswer()">Search</button>
+        <button type="submit" class="btn btn-success" (click)="getTeamAnswers()">Find team</button>
+
+        <h2>Answers:</h2>
+        <div class="form-group">
+            <label for="imagination">Imagination:</label>
+            <input type="text" class="form-control" id="imagination"
+                   [(ngModel)]="model.searchAnswer.imagination"
+                   name="imagination">
+        </div>
+        <div class="form-group">
+            <label for="animals">Animals:</label>
+            <input type="text" class="form-control" id="animals"
+                   [(ngModel)]="model.searchAnswer.animals"
+                   name="animals">
+        </div>
     </form>
 </div>
-
-<p>{{currentAnswer}}</p>
