@@ -41,7 +41,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "build": "webpack --config ./webpack/webpack.live.js --progress --inline --colors --display-error-details",
+    "build": "webpack --config ./webpack/webpack.live.js --progress --inline --color --display-error-details",
     "deploy": "npm run build && firebase use puzzlehunt2018 && firebase deploy",
     "start": "webpack-dev-server --config ./webpack/webpack.dev.js --inline --colors --watch --display-error-details --display-cached  --hot"
   },
